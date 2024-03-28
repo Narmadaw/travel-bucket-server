@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const port = 5050;
+const PORT = process.env.PORT || 5050;
 const { JWT_SECRET_KEY } = process.env;
 
 /*
@@ -13,3 +13,10 @@ const { JWT_SECRET_KEY } = process.env;
 app.use(cors()); // allows sharing cross origin requests
 app.use(express.json()); // adds req.body
 app.use(express.static("public")); // adds public folder to server images
+
+
+
+/*
+ * Start the server
+ */
+app.listen(PORT, () => console.log(`app running at http://localhost:${PORT}`));
